@@ -1,0 +1,21 @@
+{% extends "base_form.html" %}
+{% set current_template = self._TemplateReference__context.name %}
+{% block title %} Modificar asociado {% endblock title %}
+
+<body>
+  {% block header %}
+  Modificar asociado
+  {% endblock header %}
+  {% block form %}
+  <form action="" method="POST" class="d-flex flex-column ">
+    {{ form.hidden_tag() }}
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    <div class="form-group">
+      {{ field.label(class="form-label") }}
+      {{ field(class="form-control") }}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn own_golden_bg own_border_radius mt-4">Modificar Asociado</button>
+  </form>
+  {% endblock form %}
+</body>
